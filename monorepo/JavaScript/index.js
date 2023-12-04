@@ -35,35 +35,33 @@ function changeValues() {
   checkboxes.forEach((checkbox, index) => {
     checkbox.value = randomValues[index].value;
     labels[index].innerText = randomValues[index].label;
-    checkbox.checked = values[index].checked;
+    checkbox.checked = false;
   });
   showSelectedValues();
 }
+
+
 function showSelectedValues() {
-  const selectedValues = [];
   const checkboxes = document.querySelectorAll(
     '.options input[type="checkbox"]:checked'
   );
 
-  checkboxes.forEach((checkbox) => {
-    selectedValues.push(checkbox.value);
-  });
 
   const container = document.querySelector(".selected-items");
   container.innerHTML = "";
 
-  selectedValues.forEach((value) => {
+  checkboxes.forEach((checkbox) => {
     const newCheckbox = document.createElement("input");
     newCheckbox.type = "checkbox";
-    newCheckbox.value = value;
+    newCheckbox.value = checkbox.value;
     newCheckbox.checked = true;
     newCheckbox.disabled = true;
 
     newCheckbox.className = "checkbox";
 
     const newLabel = document.createElement("label");
-    newLabel.htmlFor = value;
-    newLabel.innerText = value;
+    newLabel.htmlFor = checkbox.value;
+    newLabel.innerText = checkbox.value;
 
     const newDiv = document.createElement("div");
     newDiv.appendChild(newCheckbox);

@@ -7,7 +7,7 @@ const Home = () => {
   const { goToNextStep } = useStep();
 
   return (
-    <div className="w-2/5 h-full flex flex-col gap-5 mb-20">
+    <div className="lg:w-2/5 md:w-4/5 w-full h-full flex flex-col gap-5 mb-20">
       <menu className="bg-white p-4 pb-7 shadow-sm flex flex-col gap-3">
         {services.map((service) => (
           <Link to={`/service/${service.path}`} key={service.path}>
