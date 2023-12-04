@@ -9,29 +9,37 @@
   <body>
     <main>
       <section class="container">
-        <div>
-          <input type="checkbox" class="checkbox" value="Internship" />
-          <label for="vehicle1">Internship</label>
-        </div>
-        <div>
-          <input type="checkbox" class="checkbox" value="Pabau" />
-          <label for="vehicle1">Pabau</label>
-        </div>
-        <div>
-          <input type="checkbox" class="checkbox" value="Employment" />
-          <label for="vehicle1">Employment</label>
-        </div>
-        <div>
-          <input type="checkbox" class="checkbox" value="Career" />
-          <label for="vehicle1">Career</label>
+        <span class="title">Options:</span>
+        <div class="options">
+          <div>
+            <input type="checkbox" class="checkbox" value="Internship" />
+            <label for="vehicle1">Internship</label>
+          </div>
+          <div>
+            <input type="checkbox" class="checkbox" value="Pabau" />
+            <label for="vehicle1">Pabau</label>
+          </div>
+          <div>
+            <input type="checkbox" class="checkbox" value="Employment" />
+            <label for="vehicle1">Employment</label>
+          </div>
+          <div>
+            <input type="checkbox" class="checkbox" value="Career" />
+            <label for="vehicle1">Career</label>
+          </div>
         </div>
       </section>
-      <section class="container"></section>
+      <section class="container">
+        <span class="title">Selected:</span>
+        <div class="selected-items"></div>
+      </section>
     </main>
     <div class="actions">
       <button class="button" onclick="shuffleValues()">Shuffle Values</button>
       <button class="button" onclick="changeValues()">Change Values</button>
-      <button class="button" onclick="showSelectedValues()">Show selected values</button>
+      <button class="button" onclick="showSelectedValues()">
+        Show selected values
+      </button>
     </div>
 
     <script src="./index.js"></script>

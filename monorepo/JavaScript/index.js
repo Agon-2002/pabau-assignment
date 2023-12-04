@@ -1,13 +1,13 @@
 function shuffleValues() {
   const checkboxes = document.querySelectorAll(
-    '.container:first-child input[type="checkbox"]'
+    '.options input[type="checkbox"]'
   );
 
-  const labels = document.querySelectorAll(".container label");
+  const labels = document.querySelectorAll(".options label");
 
   const values = Array.from(checkboxes).map((checkbox, index) => {
     const label = labels[index];
-    return { value: checkbox.value, label: label.innerText };
+    return { value: checkbox.value, label: label.innerText, checked: checkbox.checked };
   });
 
   for (let i = values.length - 1; i > 0; i--) {
@@ -18,7 +18,7 @@ function shuffleValues() {
   checkboxes.forEach((checkbox, index) => {
     checkbox.value = values[index].value;
     labels[index].innerText = values[index].label;
-    checkbox.checked = false; // Uncheck all checkboxes after shuffling
+    checkbox.checked = values[index].checked; // Uncheck all checkboxes after shuffling
   });
   
   showSelectedValues();
@@ -26,30 +26,30 @@ function shuffleValues() {
 
 function changeValues() {
   const checkboxes = document.querySelectorAll(
-    '.container input[type="checkbox"]'
+    '.options input[type="checkbox"]'
   );
-  const labels = document.querySelectorAll(".container label");
+  const labels = document.querySelectorAll(".options label");
 
   const randomValues = generateRandomValues(checkboxes.length);
 
   checkboxes.forEach((checkbox, index) => {
     checkbox.value = randomValues[index].value;
     labels[index].innerText = randomValues[index].label;
-    checkbox.checked = false; // Uncheck all checkboxes after changing values
+    checkbox.checked = values[index].checked;
   });
   showSelectedValues();
 }
 function showSelectedValues() {
   const selectedValues = [];
   const checkboxes = document.querySelectorAll(
-    '.container:first-child input[type="checkbox"]:checked'
+    '.options input[type="checkbox"]:checked'
   );
 
   checkboxes.forEach((checkbox) => {
     selectedValues.push(checkbox.value);
   });
 
-  const container = document.querySelector(".container:last-child");
+  const container = document.querySelector(".selected-items");
   container.innerHTML = "";
 
   selectedValues.forEach((value) => {

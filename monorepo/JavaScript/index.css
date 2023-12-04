@@ -20,19 +20,24 @@ main {
 }
 
 /* ==================================== Main Styles ==================================== */
-
 .container {
   display: flex;
-  gap: 0.3rem;
   flex-direction: column;
-  min-width: max-content;
+  gap: 2rem;
 }
 
-.container > div {
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
+.title {
+  font-weight: bold;
+  font-size: 1.5rem;
 }
+
+.options, .selected-items {
+  display: flex;
+  flex-direction: column;
+  min-width: max-content;
+  gap: .5rem;
+}
+
 
 .checkbox {
   appearance: none;
